@@ -1,4 +1,6 @@
 <?php 
-echo $_SERVER['SERVER_ADDR'];
+$command="/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'";
+$localIP = exec ($command);
+echo $localIP;
 
 ?>
