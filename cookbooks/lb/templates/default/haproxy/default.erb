@@ -3,5 +3,5 @@ listen appname 0.0.0.0:80
     balance roundrobin
     option httpclose
     option forwardfor
-    server web1 10.0.0.1:80 check
-    server web2 10.0.0.1:80 check
+    server web0 ${WEB0IP}:80 check
+    server web1 ${WEB1IP}:80 check
