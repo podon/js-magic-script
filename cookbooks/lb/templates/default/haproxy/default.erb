@@ -1,0 +1,7 @@
+listen appname 0.0.0.0:80
+    mode http
+    balance roundrobin
+    option httpclose
+    option forwardfor
+    server web1 10.0.0.1:80 check
+    server web2 10.0.0.1:80 check
