@@ -30,3 +30,18 @@ log "Installing packages"
     action :install
   end
 end
+
+log "Enabled haproxy"
+service 'haproxy' do
+  action [:enable, :start]
+end
+
+
+template "/etc/haproxy/haproxy.cfg" do
+  mode 00644
+  source 'haproxy/default.erb'
+  owner 'root'
+  group 'root'
+  action :create
+  notifies :restart, "service[haproxy]"
+end
