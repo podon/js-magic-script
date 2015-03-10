@@ -1,0 +1,7 @@
+name             'lb'
+maintainer       'base2Services'
+maintainer_email 'itsupport@base2services.com'
+license          'Apache 2.0'
+description      'Installs/Configures lb'
+long_description 'Installs/Configures lb'
+version          '0.1.0'

@@ -32,34 +32,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
     end
   
-  # config.vm.define :web1 do |box|
- #
- #    end
- #  end
- #
- #  config.vm.define :web2 do |box|
- #    box.vm.network :forwarded_port, guest: 80, host: 8022
- #    box.vm.hostname = "web2"
- #    box.vm.provision :chef_solo do |chef|
- #    chef.cookbooks_path = "cookbooks"
- #      chef.run_list = [
- #        'recipe[web::default]'
- #      ]
- #    end
- #  end
+   config.vm.define :lb do |box|
+     box.vm.network :forwarded_port, guest: 80, host: 8010
+     box.vm.hostname = "lb"
+     box.vm.provision :chef_solo do |chef|
+     chef.cookbooks_path = "cookbooks"
+       chef.run_list = [
+         'recipe[lb::default]'
+       ]
+     end
+   end
   
-  # config.vm.define :lb do |box|
- #    box.vm.network :forwarded_port, guest: 80, host: 8000
- #    box.vm.hostname = "lb1"
- #
- #    box.vm.provision :chef_solo do |chef|
- #    chef.cookbooks_path = "cookbooks"
- #      chef.run_list = [
- #        'recipe[web::loadbalancer]'
- #      ]
- #    end
- #  end
-
 
 end
 
